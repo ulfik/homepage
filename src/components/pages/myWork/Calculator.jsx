@@ -3,8 +3,7 @@ import CaloriesCalc from './caloriesCalc/CaloriesCalc'
 
 class Calculator extends React.Component {
   render(){
-    return <div>
-      <p>Kalkulator dziennego zapotrzebowania kalorycznego dla psa.</p>
+    return <div className="contentSize app">
       <CaloriesCalc />
     </div>
   }

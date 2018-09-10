@@ -21,7 +21,7 @@ class OptionPickerComponent extends React.Component {
       {types.map(element=>
         <button onClick={(event) => this.handleClick(element, event)} 
           key={element.type}
-          className={element.type === this.state.selectedType ? "btn btn-primary" : "btn btn-dark"}>
+          className={element.type === this.state.selectedType ? "btn btn-warning" : "btn btn-dark"}>
           {element.text}
         </button>
       )}

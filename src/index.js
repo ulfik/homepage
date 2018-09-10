@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.min.css';
 import Container from './components/Container';
 import model from './model/model';
+import './style/style.css';
 
 
 ReactDOM.render(

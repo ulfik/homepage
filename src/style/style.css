@@ -1,0 +1,114 @@
+.marginTop {
+  margin-top: 6%;
+}
+
+.marginBottom {
+  margin-bottom: 5%;
+}
+.marginLeft{
+  margin-left: 3%;
+}
+
+.homePage {
+  background-image: url("https://images.unsplash.com/photo-1528564861047-f3ce14662cc2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9c0ad33c7f61f432f85837830a84cc75&auto=format&fit=crop&w=1500&q=80");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+.homePageText{
+  margin-top: 20%;
+}
+
+.footer{
+  background-color: #101214;
+  height: 8vh;
+  color: white;
+}
+
+.row{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.contentSize{
+  width: 100%;
+  height: 100%;
+  min-height: 1100px
+}
+
+.app{
+  background-image: url('https://images.unsplash.com/photo-1496309732348-3627f3f040ee?ixlib=rb-0.3.5&s=4d04f3d5a488db4031d90f5a1fbba42d&auto=format&fit=crop&w=1500&q=80');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  background-attachment: fixed;
+  position: relative;
+}
+#appAboutMe{
+  background-image: url('https://images.unsplash.com/photo-1518343161123-c7e9ab4dc4da?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e2d2782341e0df5f9fe361c97c5e5e8c&auto=format&fit=crop&w=1500&q=80');
+}
+#appContact{
+  background-image: url('https://images.unsplash.com/photo-1523567353-71ea31cb9f73?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f7e02fd33eedaa12bd2f944698b8a08e&auto=format&fit=crop&w=1500&q=80');
+}
+.appContent{
+  margin-top: 10%;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+.mealText {
+  color:#233831;
+}
+
+@keyframes blink {
+  0% {
+    opacity: .2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .2;
+  }
+}
+
+.animatedDots span{
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.animatedDots span:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.animatedDots span:nth-child(3) {
+  animation-delay: .4s;
+}
+
+.chartMargin {
+  margin-top: 4%;
+}
+.aboutMeBackground {
+  background-color: #38232b5d;
+  margin-left: 2%;
+}
+
+.animations:hover {
+  transition-duration: 0.9s;
+  transform: rotate(360deg);
+}
+
+a {
+  color: black;
+}
+a:hover {
+  color: rgba(55, 88, 55, 0.986);
+  text-decoration: none;
+  cursor: pointer;
+}

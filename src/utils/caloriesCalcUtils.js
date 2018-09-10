@@ -142,7 +142,7 @@ function calculateRER(bodyMass) {
 
 function calculateDER(bodyMass, factor) {
   const der = calculateRER(bodyMass);
-  return "Dzienne zapotrzebowanie dla Twojego psa to: " + Math.round(factor * der) + " kcal :)";
+  return Math.round(factor * der);
 }
 
 export default {calculateDER, dogTypes};

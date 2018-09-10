@@ -18,19 +18,19 @@ class FindMealApp extends React.Component {
 
   render(){
     const meals = mealFinder.findRecipe(this.state.foodInFridge);
-    return <div>
+    return <div className='appContent'>
+      <p className="display-4">Wybierz składniki aby znaleźć przepis.</p>
       <MultiOptionPickerComponent 
         type={mealFinder.getSupplies()} 
         setIngrediends={this.setFoodInFridge}
       />
-      <p className='list-group-item'>Lista potraw które możesz przygotować z dostępnych składników w Twojej lodówce:</p>
       
-      {this.state.foodInFridge && meals.length === 0 && <div className='list-group-item list-group-item-danger'>Brak składników do przyrządzenia potraw :(</div>}
+      {this.state.foodInFridge && meals.length === 0 && <div>Brak składników do przyrządzenia potraw :(</div>}
 
       {this.state.foodInFridge &&
         <div className="list-group list-group-flush">
           {meals.map(element=>
-            <li className="list-group-item list-group-item-info font-weight-bold" key={element.name}>
+            <li className="list-group-item font-weight-bold  mealText" key={element.name}>
               {element.name}
               <BadgeList badges={element.ingredients} />
             </li>

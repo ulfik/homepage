@@ -28,7 +28,7 @@ class MultiOptionPickerComponent extends React.Component {
         <button 
         key={element}
         onClick={() => this.handleClick(element)}
-        className={this.state.selectedList.includes(element) ? "btn btn-info" : "btn btn-dark"}>
+        className={this.state.selectedList.includes(element) ? "btn btn-success" : "btn btn-dark"}>
         {element}
         </button>
       )}

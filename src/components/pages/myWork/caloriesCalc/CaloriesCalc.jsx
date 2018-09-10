@@ -27,12 +27,13 @@ class CaloriesCalc extends React.Component {
   }
 
   render(){
-    return <div>
-      <p>Wpisz wagę psa dla którego chcesz obliczyć dzienne zapotrzebowanie na kalorie.</p>
+    return <div className='appContent'>
+      <p className="display-4">Kalkulator dziennego zapotrzebowania kalorycznego dla psa.</p>
+      <p className="lead">Wpisz wagę psa dla którego chcesz obliczyć dzienne zapotrzebowanie na kalorie.</p>
       <TextInputComponent placeholder="waga w kg" label="" setValue={this.setWeight}/>
       
       {this.state.weight &&
-        <div><p>Wybierz grupę do której zalicza się pies.</p>
+        <div><p className="lead">Wybierz grupę do której zalicza się pies.</p>
         <OptionPickerComponent types={caloriesCalcUtils.dogTypes}  setValue={this.setDogTypes}/></div>
       }
 
@@ -43,7 +44,7 @@ class CaloriesCalc extends React.Component {
       </div>
 
       {this.state.weight && this.state.factorValue &&
-      <div className="text-center">{caloriesCalcUtils.calculateDER(this.state.weight, this.state.factorValue)}</div>}
+      <div className="lead">Dzienne zapotrzebowanie dla Twojego psa to: {caloriesCalcUtils.calculateDER(this.state.weight, this.state.factorValue)} kcal:)</div>}
     
 
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Link
+  Link, NavLink, withRouter
 } from 'react-router-dom';
 
 class NavbarButton extends React.Component {
@@ -15,7 +15,6 @@ class NavbarButton extends React.Component {
   }
 
   handleClick() {
-    console.log('on click');
     this.setState({showDropdown: !this.state.showDropdown});
   }
 
@@ -35,13 +34,14 @@ class NavbarButton extends React.Component {
 
   render(){
     const navbarButton = this.props.navbarButton;
+    const pathname = this.props.location.pathname;
     if(navbarButton.link)
-      return  <li className="nav-item active">
-        <Link className="nav-link" to={navbarButton.link}>{navbarButton.name}</Link>
+      return  <li className="nav-item">
+        <NavLink className="nav-link" activeClassName="active" to={navbarButton.link}>{navbarButton.name}</NavLink>
       </li>
     if(navbarButton.subitems)
       return  <li className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle" 
+        <a className={pathname.includes("work") ? " dropdown-toggle nav-link active " : "dropdown-toggle nav-link"} 
           id="navbarDropdown" 
           role="button" 
           data-toggle="dropdown" 
@@ -60,4 +60,4 @@ class NavbarButton extends React.Component {
   }
 };
 
-export default NavbarButton;
+export default withRouter(NavbarButton);

@@ -3,7 +3,7 @@ import FindMealApp from './findMeal/FindMealApp';
 
 class FindMeal extends React.Component {
   render(){
-    return <div>
+    return <div className="contentSize app">
       <FindMealApp />
     </div>
   }

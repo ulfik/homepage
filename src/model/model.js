@@ -5,16 +5,16 @@ const model = {
         {link:'/home', name:'home'}, 
         {link:'/about-me', name:'about me'}, 
         {name:'my work', subitems:[
-          {link:'/calculator', name: 'calculator for dogs'},
-          {link:'/find-meal', name: 'find perfect meal for you'},
-          {link:'/other', name: 'other stuff'}
+          {link:'/work/calculator', name: 'calculator for dogs'},
+          {link:'/work/find-meal', name: 'find perfect meal for you'},
         ]
         }, 
+        {link:'/codewars', name:'codewars'},
         {link:'/contact', name:'contact'}
       ]
     },
     footer: {
-      contact: 'contact me!'
+      contact: 'designed and developed by Urszula Jaworska'
     }
   }
 };

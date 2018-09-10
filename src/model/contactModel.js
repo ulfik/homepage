@@ -1,9 +1,9 @@
 const contactModel = {
   contact: {
-    phone: 123456789,
+    name: "Urszula Jaworska",
+    phone: "(+48) 726 347 727",
     email: 'urszula.jaworska.vet@gmail.com'
-  },
-  map: 'api google maps'
+  }
 }
 
 

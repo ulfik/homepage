@@ -1,6 +1,6 @@
 const homeModel = {
-  title: 'Hi everyone!',
-  subtitle: 'trolololooo!' 
+  title: '<Hello! />',
+  subtitle: 'Welcome on my homepage' 
 }
 
 export default homeModel;

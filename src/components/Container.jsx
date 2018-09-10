@@ -10,7 +10,7 @@ class Container extends React.Component {
   render(){
     const model = this.props.model;
     return <Router>
-      <div className="container">
+      <div>
       <Navbar navbar={model.common.navbar}/>
       <Content content={model.pages}/>
       <Footer footer={model.common.footer}/>
