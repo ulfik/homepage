@@ -98,7 +98,9 @@
   background-color: #38232b5d;
   margin-left: 2%;
 }
-
+.animations {
+  margin: 0 6px 0 6px;
+}
 .animations:hover {
   transition-duration: 0.9s;
   transform: rotate(360deg);
