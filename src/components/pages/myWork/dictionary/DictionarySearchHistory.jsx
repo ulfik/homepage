@@ -1,14 +1,16 @@
 import React from 'react';
-import FontAwesome from 'react-fontawesome';
+import DictionarySearchHistoryItem from './DictionarySearchHistoryItem';
 
 class DictionarySearchHistory extends React.Component {
   render(){
-    const searchHistory = this.props.searchHistory
+    const searchHistory = this.props.searchHistory;
+    const click = this.props.click;
+
     return <ul className="list-group">
-     {searchHistory.map(pairOfWords=><li className="list-group-item list-group-item-light" key={pairOfWords}>
-        <FontAwesome className='mr-2' name='pagelines' size='2x'/>
-        {pairOfWords}
-      </li>)}
+    <p className="lead text-success">Kliknij i wyciep te farmazony z hasioka</p>
+      {searchHistory.map(pairOfWords=>
+        <DictionarySearchHistoryItem key={pairOfWords} pairOfWords={pairOfWords} click={click}/>
+      )}
     </ul>
   }
 }

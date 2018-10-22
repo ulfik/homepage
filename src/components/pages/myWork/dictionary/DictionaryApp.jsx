@@ -14,6 +14,7 @@ class DictionaryApp extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.setStringToTranslate = this.setStringToTranslate.bind(this);
+    this.deleteSearchHistoryElement = this.deleteSearchHistoryElement.bind(this);
   }
 
   setStringToTranslate(stringToTranslate) {
@@ -31,21 +32,28 @@ class DictionaryApp extends React.Component {
     event.preventDefault();
   }
 
+  deleteSearchHistoryElement(deletedElement){
+    this.state.searchHistory.delete(deletedElement);
+    this.forceUpdate();
+  }
+
   render(){
     return <div className='appContent'>
       <p className="display-4">Prosty słownik polsko-śląski. Godej po naszymu!</p>
 
-      <div className="appDictionary"><TextInputComponent type='text' placeholder='wpisz tekst' setValue={this.setStringToTranslate}/></div>
+      <div className="appDictionary">
+        <TextInputComponent type='text' placeholder='wpisz tekst' setValue={this.setStringToTranslate}/>
+      </div>
       <div className="appDictionary">
         <button className="btn btn-sm btn-dark" onClick={this.handleClick}> 
-          <FontAwesome className='' name='exchange' size='1x'/> przetłumacz
+        przetłumacz <FontAwesome className='' name='angle-double-right' size='1x'/>
         </button> 
       </div>
-      <div className="appDictionary lead"> {this.state.translatedString}</div>
+      <div className="appDictionary appDictionaryOutput"> {!this.state.translatedString ? <p className='marginLeft text-muted'>...</p> : <p className='marginLeft'>{this.state.translatedString}</p>}</div>
 
-      <p className="lead">historia wyszukiwań:</p>
-
-      {(this.state.searchHistory.size === 0) ? <p className="lead">hasiok jes pusty :(</p> : <DictionarySearchHistory searchHistory={Array.from(this.state.searchHistory)}/>}
+      <p className="lead">Hasiok - historia wyszukiwań:</p>
+     
+      {(this.state.searchHistory.size === 0) ? <p className="lead text-success">Hasiok jes pusty :(</p> :  <DictionarySearchHistory click={this.deleteSearchHistoryElement} searchHistory={Array.from(this.state.searchHistory)}/>}
 
     </div>
   }

@@ -5,6 +5,7 @@
 .marginBottom {
   margin-bottom: 5%;
 }
+
 .marginLeft{
   margin-left: 3%;
 }
@@ -63,6 +64,15 @@
   margin: 2% 3px 2% 3px;
 }
 
+.appDictionaryOutput {
+  width: 220px;
+  height: 30px;
+  border: #a9a9a9 solid 1px;
+  background-color: white;
+  color: black;
+  box-shadow: #222f32 1px 1px 1px;
+}
+
 .appContent{
   margin-top: 10%;
   margin-left: 3%;
@@ -118,8 +128,13 @@
 a {
   color: black;
 }
+
 a:hover {
   color: rgba(55, 88, 55, 0.986);
   text-decoration: none;
+  cursor: pointer;
+}
+
+.cursor {
   cursor: pointer;
 }

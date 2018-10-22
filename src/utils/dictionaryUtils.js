@@ -2,7 +2,7 @@ const dictionary = {
   nie: 'niy',
   jest: 'jes',
   zdrowa: 'zdrowo',
-  śmieć: 'abfal',
+  śmieci: 'abfal',
   błąd: 'abfal',
   cholera: "jeruna",
   niedowiary: "jeruna",
