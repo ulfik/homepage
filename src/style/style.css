@@ -49,17 +49,26 @@
   background-attachment: fixed;
   position: relative;
 }
+
 #appAboutMe{
   background-image: url('https://images.unsplash.com/photo-1518343161123-c7e9ab4dc4da?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e2d2782341e0df5f9fe361c97c5e5e8c&auto=format&fit=crop&w=1500&q=80');
 }
+
 #appContact{
   background-image: url('https://images.unsplash.com/photo-1523567353-71ea31cb9f73?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f7e02fd33eedaa12bd2f944698b8a08e&auto=format&fit=crop&w=1500&q=80');
 }
+
+.appDictionary {
+  display: inline-block;
+  margin: 2% 3px 2% 3px;
+}
+
 .appContent{
   margin-top: 10%;
   margin-left: 3%;
   margin-right: 3%;
 }
+
 .mealText {
   color:#233831;
 }

@@ -7,6 +7,7 @@ const model = {
         {name:'my work', subitems:[
           {link:'/work/calculator', name: 'calculator for dogs'},
           {link:'/work/find-meal', name: 'find perfect meal for you'},
+          {link:'/work/dictionary', name: 'dictionary - godej po naszymu!'},
         ]
         }, 
         {link:'/codewars', name:'codewars'},

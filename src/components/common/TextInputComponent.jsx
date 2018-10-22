@@ -17,11 +17,11 @@ class TextInputComponent extends React.Component {
 
 
   render(){
-    const {label, placeholder} = this.props;
+    const {label, placeholder, type} = this.props;
     return <div>
         <label>
           {label}
-          <input type="number" placeholder={placeholder} value={this.state.value} onChange={this.handleChange} />
+          <input type={type} placeholder={placeholder} value={this.state.value} onChange={this.handleChange} />
         </label>
     </div>
   }

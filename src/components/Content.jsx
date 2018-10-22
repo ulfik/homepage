@@ -11,6 +11,7 @@ import FindMeal from './pages/myWork/FindMeal';
 import Codewars from './pages/codewars/Codewars';
 import Contact from './pages/contact/Contact';
 import NotExists from './pages/NotExists';
+import Dictionary from './pages/myWork/Dictionary';
 
 class Content extends React.Component {
   render(){
@@ -22,6 +23,7 @@ class Content extends React.Component {
             <Route path="/about-me" component={AboutMe} />
             <Route path="/work/calculator" component={Calculator} />
             <Route path="/work/find-meal" component={FindMeal} />
+            <Route path="/work/dictionary" component={Dictionary} />
             <Route path="/codewars" component={Codewars} />
             <Route path="/contact" component={Contact} />
             <Route component={NotExists} />

@@ -39,7 +39,7 @@ class CaloriesCalc extends React.Component {
     return <div className='appContent'>
       <p className="display-4">Kalkulator dziennego zapotrzebowania kalorycznego dla psa.</p>
       <p className="lead">Wpisz wagę psa dla którego chcesz obliczyć dzienne zapotrzebowanie na kalorie.</p>
-      <TextInputComponent placeholder="waga w kg" label="" setValue={this.setWeight}/>
+      <TextInputComponent type="number" placeholder="waga w kg" label="" setValue={this.setWeight}/>
       
       {weight &&
         <div><p className="lead">Wybierz grupę do której zalicza się pies.</p>

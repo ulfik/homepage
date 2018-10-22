@@ -25,7 +25,7 @@ class FindMealApp extends React.Component {
         setIngrediends={this.setFoodInFridge}
       />
       
-      {this.state.foodInFridge && meals.length === 0 && <div>Brak składników do przyrządzenia potraw :(</div>}
+      {this.state.foodInFridge && meals.length === 0 && <div className="lead mt-2">Brak składników do przyrządzenia potraw :(</div>}
 
       {this.state.foodInFridge &&
         <div className="list-group list-group-flush">
