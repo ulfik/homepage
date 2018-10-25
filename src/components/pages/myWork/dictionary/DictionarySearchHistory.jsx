@@ -7,7 +7,7 @@ class DictionarySearchHistory extends React.Component {
     const click = this.props.click;
 
     return <ul className="list-group">
-    <p className="lead text-success">Kliknij i wyciep te farmazony z hasioka</p>
+    <p className="lead text-warning">Kliknij i wyciep te farmazony z hasioka</p>
       {searchHistory.map(pairOfWords=>
         <DictionarySearchHistoryItem key={pairOfWords} pairOfWords={pairOfWords} click={click}/>
       )}

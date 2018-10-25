@@ -15,13 +15,14 @@ class DictionaryApp extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.setStringToTranslate = this.setStringToTranslate.bind(this);
     this.deleteSearchHistoryElement = this.deleteSearchHistoryElement.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   setStringToTranslate(stringToTranslate) {
     this.setState({stringToTranslate});
   }
 
-  handleClick(event) {
+  handleClick() {
     if(this.state.stringToTranslate){
       const translatedString = dictionaryUtils.translateToDialect(this.state.stringToTranslate);
       this.state.searchHistory.add(this.state.stringToTranslate + ' - ' + translatedString);
@@ -29,7 +30,12 @@ class DictionaryApp extends React.Component {
         translatedString
       })
     }
-    event.preventDefault();
+  }
+
+  handleKeyPress(event) {
+    if(event.key === 'Enter'){
+      this.handleClick();
+    }
   }
 
   deleteSearchHistoryElement(deletedElement){
@@ -42,18 +48,18 @@ class DictionaryApp extends React.Component {
       <p className="display-4">Prosty słownik polsko-śląski. Godej po naszymu!</p>
 
       <div className="appDictionary">
-        <TextInputComponent type='text' placeholder='wpisz tekst' setValue={this.setStringToTranslate}/>
+        <TextInputComponent type='text' placeholder='wpisz tekst' setValue={this.setStringToTranslate} onKeyPress={this.handleKeyPress}/>
       </div>
       <div className="appDictionary">
         <button className="btn btn-sm btn-dark" onClick={this.handleClick}> 
-        przetłumacz <FontAwesome className='' name='angle-double-right' size='1x'/>
+        przetłumacz <FontAwesome className='' name='angle-double-right' size='lg'/>
         </button> 
       </div>
       <div className="appDictionary appDictionaryOutput"> {!this.state.translatedString ? <p className='marginLeft text-muted'>...</p> : <p className='marginLeft'>{this.state.translatedString}</p>}</div>
 
       <p className="lead">Hasiok - historia wyszukiwań:</p>
      
-      {(this.state.searchHistory.size === 0) ? <p className="lead text-success">Hasiok jes pusty :(</p> :  <DictionarySearchHistory click={this.deleteSearchHistoryElement} searchHistory={Array.from(this.state.searchHistory)}/>}
+      {(this.state.searchHistory.size === 0) ? <p className="lead text-warning">Hasiok jes pusty :(</p> :  <DictionarySearchHistory click={this.deleteSearchHistoryElement} searchHistory={Array.from(this.state.searchHistory)}/>}
 
     </div>
   }
