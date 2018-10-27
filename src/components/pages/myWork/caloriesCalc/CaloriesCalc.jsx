@@ -1,10 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import caloriesCalcUtils from '../../../../utils/caloriesCalcUtils';
 import TextInputComponent from '../../../common/TextInputComponent';
 import OptionPickerComponent from '../../../common/OptionPickerComponent';
-import { createStore } from 'redux';
-import rootReducer from './reducers/rootReducer';
-import actionCreators from './actions/caloriesActionCreators'
+import caloriesActions from './actions/caloriesActions';
+
 
 class CaloriesCalc extends React.Component {
   constructor(props) {
@@ -13,37 +13,38 @@ class CaloriesCalc extends React.Component {
     this.setWeight = this.setWeight.bind(this);
     this.setDogTypes = this.setDogTypes.bind(this);
     this.setFactor = this.setFactor.bind(this);
-
-    this.forceUpdate = this.forceUpdate.bind(this);
-
-    this.store = createStore(rootReducer);
-    this.store.subscribe(this.forceUpdate);
+    this.resetCalc = this.resetCalc.bind(this);
   }
  
   setWeight(weight) {
-    this.store.dispatch(actionCreators.setWeightAction(weight));
+    this.props.setWeightActionCreator(weight);
   }
 
   setDogTypes(dogSubtypes) {
-    this.store.dispatch(actionCreators.setDogTypeAction(dogSubtypes));
+    this.props.setDogTypeActionCreator(dogSubtypes);
   }
   
   setFactor(factorValue) {
-    this.store.dispatch(actionCreators.setFactorAction(factorValue));
+    this.props.setFactorActionCreator(factorValue);
+  }
+
+  resetCalc() {
+    this.props.resetCalcAction();
   }
 
   render(){
 
-    const {caloriesCalc: {weight, dogSubtypes, factorValue}} = this.store.getState();
+    const {weight, dogSubtypes, factorValue} = this.props.caloriesCalc;
 
     return <div className='appContent'>
       <p className="display-4">Kalkulator dziennego zapotrzebowania kalorycznego dla psa.</p>
       <p className="lead">Wpisz wagę psa dla którego chcesz obliczyć dzienne zapotrzebowanie na kalorie.</p>
-      <TextInputComponent type="number" placeholder="waga w kg" label="" setValue={this.setWeight}/>
+      <button className="btn btn-dark mb-3" onClick={this.resetCalc}>reset</button>
+      <TextInputComponent type="number" placeholder="waga w kg" label="" value={weight} setValue={this.setWeight}/>
       
       {weight &&
         <div><p className="lead">Wybierz grupę do której zalicza się pies.</p>
-        <OptionPickerComponent types={caloriesCalcUtils.dogTypes}  setValue={this.setDogTypes}/></div>
+        <OptionPickerComponent types={caloriesCalcUtils.dogTypes} setValue={this.setDogTypes}/></div>
       }
 
       <div>
@@ -55,9 +56,22 @@ class CaloriesCalc extends React.Component {
       {weight && factorValue &&
       <div className="lead">Dzienne zapotrzebowanie dla Twojego psa to: {caloriesCalcUtils.calculateDER(weight, factorValue)} kcal:)</div>}
     
-
     </div>
   }
 };
 
-export default CaloriesCalc;
+function mapStateToProps(state){
+  return {
+    caloriesCalc: state.caloriesCalc
+
+  };
+}
+
+const mapDispatchToProps = {
+  setWeightActionCreator: (weight) => caloriesActions.setWeightActionCreator(weight),
+  setDogTypeActionCreator: (dogSubtypes) => caloriesActions.setDogTypeActionCreator(dogSubtypes),
+  setFactorActionCreator: (factorValue) => caloriesActions.setFactorActionCreator(factorValue),
+  resetCalcAction: () => caloriesActions.resetCalcAction
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CaloriesCalc);

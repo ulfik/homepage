@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import caloriesCalcReducer from './caloriesCalcReducer';
+import caloriesCalcReducer from '../components/pages/myWork/caloriesCalc/reducers/caloriesCalcReducer';
 
 const rootReducer = combineReducers({
   caloriesCalc: caloriesCalcReducer
