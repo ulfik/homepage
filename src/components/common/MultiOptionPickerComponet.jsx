@@ -3,32 +3,30 @@ import React from 'react';
 class MultiOptionPickerComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {selectedList: []};
-
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(element) {
-    const setIngrediends = this.props.setIngrediends;
-    const selectedList = this.state.selectedList;
+    const selectedList = this.props.selectedList;
+    const deleteElement = this.props.deleteElement;
+    const addElement = this.props.addElement;
+
     if(selectedList.includes(element)){
-      const index = selectedList.indexOf(element);
-      selectedList.splice(index, 1);
+      deleteElement(element);
     } else {
-      selectedList.push(element);
+      addElement(element);
     }
-    this.setState({selectedList});
-    setIngrediends(selectedList);
   }
 
   render(){
-    const type = this.props.type;
+    const supplies = this.props.supplies;
+    const selectedList = this.props.selectedList;
     return <div>
-      {type.map(element=>
+      {supplies.map(element=>
         <button 
         key={element}
         onClick={() => this.handleClick(element)}
-        className={this.state.selectedList.includes(element) ? "btn btn-success" : "btn btn-dark"}>
+        className={selectedList.includes(element) ? "btn btn-success" : "btn btn-dark"}>
         {element}
         </button>
       )}

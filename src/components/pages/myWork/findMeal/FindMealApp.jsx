@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import mealFinder from '../../../../utils/mealFinder'
 import MultiOptionPickerComponent from '../../../common/MultiOptionPickerComponet';
 import BadgeList from '../../../common/BadgeList';
+import findMealActions from './actions/findMealActions'
 
 class FindMealApp extends React.Component {
   constructor(props){
@@ -17,17 +19,22 @@ class FindMealApp extends React.Component {
 
 
   render(){
-    const meals = mealFinder.findRecipe(this.state.foodInFridge);
+    const {foodInFridge} = this.props;
+    const meals = mealFinder.findRecipe(foodInFridge);
+    
     return <div className='appContent'>
       <p className="display-4">Wybierz składniki aby znaleźć przepis.</p>
+      
       <MultiOptionPickerComponent 
-        type={mealFinder.getSupplies()} 
-        setIngrediends={this.setFoodInFridge}
+        addElement = {this.props.addIngredient}
+        deleteElement = {this.props.deleteIngredient}
+        supplies={mealFinder.getSupplies()} 
+        selectedList={foodInFridge}
       />
       
-      {this.state.foodInFridge && meals.length === 0 && <div className="lead mt-2">Brak składników do przyrządzenia potraw :(</div>}
+      {foodInFridge && meals.length === 0 && <div className="lead mt-2">Brak składników do przyrządzenia potraw - dzwoń po pizzę... </div>}
 
-      {this.state.foodInFridge &&
+      {foodInFridge &&
         <div className="list-group list-group-flush">
           {meals.map(element=>
             <li className="list-group-item font-weight-bold  mealText" key={element.name}>
@@ -40,5 +47,15 @@ class FindMealApp extends React.Component {
     </div>
   }
 }
+function mapStateToProps(state){
+  return {
+    foodInFridge: state.findMeal
+  };
+}
 
-export default FindMealApp;
+const mapDispatchToProps = {
+  addIngredient: (ingredient) => findMealActions.addIngredient(ingredient),
+  deleteIngredient: (ingredient) => findMealActions.deleteIngredient(ingredient)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FindMealApp);
