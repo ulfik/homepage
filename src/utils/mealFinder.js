@@ -76,8 +76,6 @@ const recipies = [
   }
 ];
 
-
-
 function findRecipe(selectedSupplies) {
   return recipies.filter(recipe => 
     recipe.ingredients.every(ingredient => selectedSupplies.includes(ingredient))

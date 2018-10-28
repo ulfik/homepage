@@ -1,13 +1,29 @@
 function caloriesCalc (state = {}, action){
   switch (action.type){
     case 'SET_WEIGHT':
-      return {weight: action.weight, dogSubtypes: null, factorValue: null};
+      return {
+        weight: action.weight, 
+        dogType: null, 
+        factorValue: null
+      };
     case 'SET_DOG_TYPE':
-      return {weight: state.weight, dogSubtypes: action.dogType, factorValue: null};
+      return {
+        weight: state.weight, 
+        dogType: action.dogType, 
+        factorValue: null
+      };
     case 'SET_FACTOR':
-      return {weight: state.weight, dogSubtypes: state.dogSubtypes, factorValue: action.factor};
+      return {
+        weight: state.weight, 
+        dogType: state.dogType, 
+        factorValue: action.factor
+      };
     case 'RESET_CALC':
-      return {weight: null, dogSubtypes: null, factorValue: null};
+      return {
+        weight: null, 
+        dogType: null, 
+        factorValue: null
+      };
     default:
       return state;
   }

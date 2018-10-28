@@ -20,12 +20,12 @@ class CaloriesCalc extends React.Component {
     this.props.setWeightActionCreator(weight);
   }
 
-  setDogTypes(dogSubtypes) {
-    this.props.setDogTypeActionCreator(dogSubtypes);
+  setDogTypes(element) {
+    this.props.setDogTypeActionCreator(element.type);
   }
   
-  setFactor(factorValue) {
-    this.props.setFactorActionCreator(factorValue);
+  setFactor(element) {
+    this.props.setFactorActionCreator(element.value);
   }
 
   resetCalc() {
@@ -34,7 +34,7 @@ class CaloriesCalc extends React.Component {
 
   render(){
 
-    const {weight, dogSubtypes, factorValue} = this.props.caloriesCalc;
+    const {weight, dogType, factorValue} = this.props;
 
     return <div className='appContent'>
       <p className="display-4">Kalkulator dziennego zapotrzebowania kalorycznego dla psa.</p>
@@ -44,12 +44,12 @@ class CaloriesCalc extends React.Component {
       
       {weight &&
         <div><p className="lead">Wybierz grupę do której zalicza się pies.</p>
-        <OptionPickerComponent types={caloriesCalcUtils.dogTypes} setValue={this.setDogTypes}/></div>
+        <OptionPickerComponent types={caloriesCalcUtils.dogTypes} setElement={this.setDogTypes} value={dogType}/></div>
       }
 
       <div>
-      {dogSubtypes &&
-         <OptionPickerComponent types={dogSubtypes} vertical={true} setValue={this.setFactor}/>
+      {dogType &&
+         <OptionPickerComponent types={caloriesCalcUtils.getDogSubTypes(dogType)} vertical={true} setElement={this.setFactor} />
       }
       </div>
 
@@ -62,14 +62,14 @@ class CaloriesCalc extends React.Component {
 
 function mapStateToProps(state){
   return {
-    caloriesCalc: state.caloriesCalc
+    ...state.caloriesCalc
 
   };
 }
 
 const mapDispatchToProps = {
   setWeightActionCreator: (weight) => caloriesActions.setWeightActionCreator(weight),
-  setDogTypeActionCreator: (dogSubtypes) => caloriesActions.setDogTypeActionCreator(dogSubtypes),
+  setDogTypeActionCreator: (dogType) => caloriesActions.setDogTypeActionCreator(dogType),
   setFactorActionCreator: (factorValue) => caloriesActions.setFactorActionCreator(factorValue),
   resetCalcAction: () => caloriesActions.resetCalcAction
 }

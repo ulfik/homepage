@@ -3,15 +3,14 @@ import React from 'react';
 class OptionPickerComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {selectedType: null};
-
+    this.state = {selectedType: props.value};
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(element, event) {
-    const setValue = this.props.setValue;
+    const setElement = this.props.setElement;
     this.setState({selectedType: element.type});
-    setValue(element.value);
+    setElement(element);
     event.stopPropagation();
   }
 

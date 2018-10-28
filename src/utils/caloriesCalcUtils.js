@@ -140,9 +140,13 @@ function calculateRER(bodyMass) {
   return Math.round(Math.pow(bodyMass, 0.75)*10)/10 * 70; 
 }
 
+function getDogSubTypes(dogType) {
+ return dogTypes.find(element=>element.type === dogType).value;
+}
+
 function calculateDER(bodyMass, factor) {
   const der = calculateRER(bodyMass);
   return Math.round(factor * der);
 }
 
-export default {calculateDER, dogTypes};
+export default {calculateDER, dogTypes, getDogSubTypes};
