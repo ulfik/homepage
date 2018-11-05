@@ -1,12 +1,9 @@
 import React from 'react';
 
-class AnimatedDots extends React.Component{
-
-  render(){
-    return<span className='animatedDots'>
-      <span>.</span><span>.</span><span>.</span>
-    </span>
-  }
+function AnimatedDots(){
+  return<span className='animatedDots'>
+    <span>.</span><span>.</span><span>.</span>
+  </span>  
 }
 
 export default AnimatedDots;

@@ -13,23 +13,20 @@ import Contact from './pages/contact/Contact';
 import NotExists from './pages/NotExists';
 import Dictionary from './pages/myWork/Dictionary';
 
-class Content extends React.Component {
-  render(){
-
-    return <div className="row">
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/home" component={Home} />
-            <Route path="/about-me" component={AboutMe} />
-            <Route path="/work/calculator" component={Calculator} />
-            <Route path="/work/find-meal" component={FindMeal} />
-            <Route path="/work/dictionary" component={Dictionary} />
-            <Route path="/codewars" component={Codewars} />
-            <Route path="/contact" component={Contact} />
-            <Route component={NotExists} />
-          </Switch>
-        </div>
-  }
+function Content(){
+  return <div className="row">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/home" component={Home} />
+          <Route path="/about-me" component={AboutMe} />
+          <Route path="/work/calculator" component={Calculator} />
+          <Route path="/work/find-meal" component={FindMeal} />
+          <Route path="/work/dictionary" component={Dictionary} />
+          <Route path="/codewars" component={Codewars} />
+          <Route path="/contact" component={Contact} />
+          <Route component={NotExists} />
+        </Switch>
+      </div>
 };
 
 export default Content;

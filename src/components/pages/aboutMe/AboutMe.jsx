@@ -5,8 +5,7 @@ import MyPhoto from '../../../images/MyPhoto.jpg';
 import FontAwesome from 'react-fontawesome';
 
 
-class AboutMe extends React.Component {
-  render(){
+function AboutMe(){
     return <div className="contentSize app" id="appAboutMe">     
       <div className='row'>
         <div className='col-4 marginTop aboutMeBackground'>
@@ -45,7 +44,6 @@ class AboutMe extends React.Component {
         </div>
       </div>
     </div>
-  }
 };
 
 export default AboutMe;

@@ -1,12 +1,10 @@
 import React from 'react';
 import CaloriesCalc from './caloriesCalc/CaloriesCalc'
 
-class Calculator extends React.Component {
-  render(){
+function Calculator(){
     return <div className="contentSize app">
       <CaloriesCalc />
     </div>
-  }
 };
 
 export default Calculator;

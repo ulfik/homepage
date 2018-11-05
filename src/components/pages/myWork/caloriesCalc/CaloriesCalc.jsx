@@ -17,7 +17,8 @@ class CaloriesCalc extends React.Component {
   }
  
   setWeight(weight) {
-    this.props.setWeightActionCreator(weight);
+    if(isPositiveFloat(weight))
+      this.props.setWeightActionCreator(weight);
   }
 
   setDogTypes(element) {
@@ -40,7 +41,7 @@ class CaloriesCalc extends React.Component {
       <p className="display-4">Kalkulator dziennego zapotrzebowania kalorycznego dla psa.</p>
       <p className="lead">Wpisz wagę psa dla którego chcesz obliczyć dzienne zapotrzebowanie na kalorie.</p>
       <button className="btn btn-dark mb-3" onClick={this.resetCalc}>reset</button>
-      <TextInputComponent type="number" placeholder="waga w kg" label="" value={weight} setValue={this.setWeight}/>
+      <TextInputComponent type="number" min={1} placeholder="waga w kg" label="" value={weight} setValue={this.setWeight}/>
       
       {weight &&
         <div><p className="lead">Wybierz grupę do której zalicza się pies.</p>
@@ -59,6 +60,10 @@ class CaloriesCalc extends React.Component {
     </div>
   }
 };
+
+function isPositiveFloat(s) {
+  return !isNaN(s) && Number(s) >= 0;
+}
 
 function mapStateToProps(state){
   return {

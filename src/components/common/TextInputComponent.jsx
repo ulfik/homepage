@@ -14,11 +14,12 @@ class TextInputComponent extends React.Component {
   }
 
   render(){
-    const {label, placeholder, type, onKeyPress, value} = this.props;
+    const {label, placeholder, type, onKeyPress, value, min} = this.props;
     return <div>
         <label>
           {label}
           <input 
+            min={min}
             type={type} 
             placeholder={placeholder} 
             value={value !== null ? value : ''} 
